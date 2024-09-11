@@ -13,3 +13,20 @@ ansible all --list-hosts
 ansible all -m gather_facts --limit 192.168.56.101
 
 
+
+# COMMANDS
+
+ansible all -m apt -a update_cache=true --become --ask-become-pass # same as apt update
+
+ansible all -m apt -a "upgrade=dist" --become --ask-become-pass # same as apt dist-upgrade
+
+ansible all -m apt -a name=cloud-init --become --ask-become-pass # download package
+
+ansible all -m apt -a "name=cloud-init state=latest" --become --ask-become-pass # upgrade package
+
+
+# TROUBLESHOOT
+
+check commands manually on the vm 
+
+cat /var/log/apt/history
