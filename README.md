@@ -24,6 +24,11 @@ ansible all -m apt -a name=cloud-init --become --ask-become-pass # download pack
 
 ansible all -m apt -a "name=cloud-init state=latest" --become --ask-become-pass # upgrade package
 
+ansible all -m gather_facts --limit 192.168.56.101 | grep ansible_distribution
+
+ansible-playbook --list-tags site.yml
+
+ansible-playbook --tags "db,apache" --ask-become-pass site.yml
 
 # TROUBLESHOOT
 
