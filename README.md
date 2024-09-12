@@ -16,6 +16,8 @@ ansible all -m gather_facts --limit 192.168.56.101
 
 # COMMANDS
 
+ssh-copy-id -i ~/.ssh/ansible.pub 192.168.56.100
+
 ansible all -m apt -a update_cache=true --become --ask-become-pass # same as apt update
 
 ansible all -m apt -a "upgrade=dist" --become --ask-become-pass # same as apt dist-upgrade
