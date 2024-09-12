@@ -18,13 +18,9 @@
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-- hosts: workstations
+- hosts: workstation
   become: true
   tasks:
-
-  - name: install unzip
-    package:
-      name: unzip
 
   - name: install unzip
     package:
@@ -37,7 +33,7 @@
       remote_src: yes
       mode: 0755
       owner: root
-      owner: root
+      group: root
 
 
 
