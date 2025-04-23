@@ -10,13 +10,13 @@ ansible all -m ping
 
 ansible all --list-hosts
 
-ansible all -m gather_facts --limit 192.168.56.101
+ansible all -m gather_facts --limit 000.000.00.101
 
 
 
 # COMMANDS
 
-ssh-copy-id -i ~/.ssh/ansible.pub 192.168.56.100
+ssh-copy-id -i ~/.ssh/ansible.pub 000.000.00.100
 
 ansible all -m apt -a update_cache=true --become --ask-become-pass # same as apt update
 
@@ -26,7 +26,7 @@ ansible all -m apt -a name=cloud-init --become --ask-become-pass # download pack
 
 ansible all -m apt -a "name=cloud-init state=latest" --become --ask-become-pass # upgrade package
 
-ansible all -m gather_facts --limit 192.168.56.101 | grep ansible_distribution
+ansible all -m gather_facts --limit 000.000.00.101 | grep ansible_distribution
 
 ansible-playbook --list-tags site.yml
 
